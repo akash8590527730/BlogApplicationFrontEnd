@@ -10,7 +10,7 @@ function MyBlogs() {
     const fetchMyBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/my-blog",
+          "https://blogapplicationbackend-1.onrender.com/api/blogs/my-blog",
           { withCredentials: true }
         );
         console.log(data);
