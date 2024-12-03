@@ -19,11 +19,14 @@ function Contact() {
       message: data.message,
     };
     try {
-      await axios.post("https://api.web3forms.com/submit", userInfo);
+      await axios.post("https://api.web3forms.com/submit", userInfo, {
+        headers: { "Content-Type": "application/json" },
+      });      
       toast.success("Message sent successfully");
     } catch (error) {
+      console.error(error.response?.data || error.message);
       toast.error("An error occurred");
-    }
+    }    
   };
 
   return (
