@@ -12,7 +12,7 @@ function Creator() {
     const fetchAdmins = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/users/admins",
+          "https://blogapplicationbackend-1.onrender.com/api/users/admins",
           {
             withCredentials: true,
           }
