@@ -13,26 +13,20 @@ function Contact() {
 
   const onSubmit = async (data) => {
     const userInfo = {
-      access_key: "YOUR_VALID_ACCESS_KEY", // Replace with your Web3Forms access key
-      name: data.username.trim(),
-      email: data.email.trim(),
-      message: data.message.trim(),
+      access_key: "be7f1a7b-ec68-47fc-be64-b31df8f8dd25",
+      name: data.username,
+      email: data.email,
+      message: data.message,
     };
-
-    console.log("Payload being sent:", userInfo);
-
     try {
-      const response = await axios.post("https://api.web3forms.com/submit", userInfo, {
+      await axios.post("https://api.web3forms.com/submit", userInfo, {
         headers: { "Content-Type": "application/json" },
-      });
-
-      console.log("Response from Web3Forms:", response.data);
+      });      
       toast.success("Message sent successfully");
     } catch (error) {
-      console.error("Error from Web3Forms:", error.response?.data || error.message);
-      const errorMessage = error.response?.data?.message || "An error occurred. Please try again.";
-      toast.error(errorMessage);
-    }
+      console.error(error.response?.data || error.message);
+      toast.error("An error occurred");
+    }    
   };
 
   return (
@@ -47,40 +41,43 @@ function Contact() {
                 <div className="space-y-1">
                   <input
                     type="text"
+                    name="username"
                     placeholder="Your Name"
                     className="w-full px-4 py-2 bg-white text-black rounded-lg shadow focus:ring-2 focus:ring-yellow-400"
-                    {...register("username", { required: "Name is required" })}
+                    {...register("username", { required: true })}
                   />
                   {errors.username && (
-                    <span className="text-sm text-yellow-300">{errors.username.message}</span>
+                    <span className="text-sm text-yellow-300">
+                      This field is required
+                    </span>
                   )}
                 </div>
                 <div className="space-y-1">
                   <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
                     className="w-full px-4 py-2 bg-white text-black rounded-lg shadow focus:ring-2 focus:ring-yellow-400"
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Invalid email format",
-                      },
-                    })}
+                    {...register("email", { required: true })}
                   />
                   {errors.email && (
-                    <span className="text-sm text-yellow-300">{errors.email.message}</span>
+                    <span className="text-sm text-yellow-300">
+                      This field is required
+                    </span>
                   )}
                 </div>
                 <div className="space-y-1">
                   <textarea
+                    name="message"
                     placeholder="Your Message"
                     rows="4"
                     className="w-full px-4 py-2 bg-white text-black rounded-lg shadow focus:ring-2 focus:ring-yellow-400"
-                    {...register("message", { required: "Message is required" })}
+                    {...register("message", { required: true })}
                   />
                   {errors.message && (
-                    <span className="text-sm text-yellow-300">{errors.message.message}</span>
+                    <span className="text-sm text-yellow-300">
+                      This field is required
+                    </span>
                   )}
                 </div>
                 <button
@@ -93,7 +90,9 @@ function Contact() {
             </div>
             {/* Contact Info Section */}
             <div className="w-full md:w-1/2 bg-gray-100 p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Contact Information
+              </h2>
               <ul className="space-y-4">
                 <li className="flex items-center space-x-3">
                   <FaPhone className="text-indigo-600 text-xl" />
@@ -108,6 +107,20 @@ function Contact() {
                   <span className="text-gray-700">Mumbai, India</span>
                 </li>
               </ul>
+              <div className="mt-8">
+                <h3 className="text-lg font-medium text-gray-800 mb-2">
+                  Follow Us
+                </h3>
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-md transform transition hover:scale-110">
+                    <FaEnvelope className="text-white" />
+                  </div>
+                  <div className="h-10 w-10 bg-purple-600 rounded-full flex items-center justify-center shadow-md transform transition hover:scale-110">
+                    <FaPhone className="text-white" />
+                  </div>
+                  
+                </div>
+              </div>
             </div>
           </div>
         </div>
