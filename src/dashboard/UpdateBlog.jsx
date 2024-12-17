@@ -42,7 +42,7 @@ function UpdateBlog() {
         setTitle(data?.title);
         setCategory(data?.category);
         setAbout(data?.about);
-        setBlogImage(data?.blogImage.url);
+        setBlogImage(data?.blogImage);
       } catch (error) {
         console.log(error);
         toast.error("Please fill the required fields");
