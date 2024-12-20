@@ -36,7 +36,9 @@ function App() {
       {!hideNavbarFooter && <Navbar />}
       <Routes>
         <Route
-          exact path="/" element={<Home/>}
+          exact
+          path="/"
+          element={token ? <Home /> : <Navigate to={"/login"}/>}
         />
         <Route exact path="/blogs" element={<Blogs />} />
         <Route exact path="/about" element={<About />} />
