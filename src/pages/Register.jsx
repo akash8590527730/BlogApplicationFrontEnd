@@ -92,7 +92,7 @@ function Register() {
               className="w-full p-2 mb-4 border rounded-md bg-gray-100 text-gray-700"
             >
               <option value="">Select Role</option>
-              {/* <option value="user">user</option> */}
+              <option value="user">user</option>
               <option value="admin">admin</option>
             </select>
             <div className="mb-4">
