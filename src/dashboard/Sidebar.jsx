@@ -32,7 +32,7 @@ function Sidebar({ setComponent }) {
       toast.success(data.message);
       localStorage.removeItem("jwt"); // deleting token in localStorage
       setIsAuthenticated(false);
-      navigateTo("/login");
+      navigateTo("/");
     } catch (error) {
       console.log(error);
       toast.error(error.data.message || "Failed to logout");
