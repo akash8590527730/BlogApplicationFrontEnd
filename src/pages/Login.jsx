@@ -71,7 +71,7 @@ function Login() {
               className="w-full p-3 mb-6 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               <option value="">Select Role</option>
-              <option value="user">user</option>
+              {/* <option value="user">user</option> */}
               <option value="admin">admin</option>
             </select>
 
